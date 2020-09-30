@@ -7,3 +7,5 @@ const videoSchema = new Schema({
     url: String,
     description: String
 });
+
+module.exports = mongoose.model('video',videoSchema,'videos');

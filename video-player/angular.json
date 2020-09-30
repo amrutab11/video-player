@@ -88,7 +88,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "/home/amruta/Project/video-player/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
