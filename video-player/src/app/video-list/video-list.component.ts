@@ -20,8 +20,7 @@ export class VideoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onselect(vid:Video){
-
+  onSelect(vid:Video){
     this.SelectVideo.emit(vid);
   }
 }
