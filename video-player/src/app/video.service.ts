@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders,HttpRequest} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { from } from 'rxjs';
+import { Video } from './video';
 
 
 
@@ -10,7 +11,8 @@ import { from } from 'rxjs';
 })
 export class VideoService {
 
-  _getUrl = "http://localhost:3000/api/videos/";
+  _baseUrl = "http://localhost:4000/api/";
+  
   constructor(private _http: HttpClient) { }
 
   /*getVideos(){
@@ -19,8 +21,20 @@ export class VideoService {
       .map((response: Response)=> response.json());
   }*/
 
-  getServiceCall() {
-    return this._http.get(this._getUrl);
+  getServiceCall(url:string) {
+    return this._http.get(this._baseUrl+url);
+  }
+
+  postServiceCall(url:string,body){
+    return this._http.post(this._baseUrl + url, body);
+  }
+
+  putServiceCall(url:string,id:string,body){
+    return this._http.put(this._baseUrl+url+"/"+id,body);
+  }
+
+  deleteServiceCall(url:string,id:string,body){
+    return this._http.delete(this._baseUrl+url+"/"+id);
   }
 
 }
